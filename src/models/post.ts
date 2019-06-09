@@ -15,4 +15,4 @@ export const PostSchema = new Schema({
         type: String,
         required: "Post cannot be without author"
     }
-});
+}, { timestamps: {}, versionKey: "_version" });

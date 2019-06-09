@@ -4,14 +4,13 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
+    "clean": "rimraf dist/*",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
     "tsc": "tsc",
-    "build": "npm-run-all lint tsc",
-    "build:dev":"tsc",
-    "dev:start": "npm-run-all build:dev start",
-    "dev": "nodemon --watch src -e ts --exec npm run dev:start",
-    "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm-run-all clean lint tsc",
+    "build:dev": "npm-run-all clean tsc",
+    "dev:server": "nodemon --watch src -e ts --exec npm run build:dev start",
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
@@ -23,6 +22,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.5.13",
     "nodemon": "^1.19.1",
+    "rimraf": "^2.6.3",
     "tslint": "^5.17.0",
     "typescript": "^3.5.1"
   },
