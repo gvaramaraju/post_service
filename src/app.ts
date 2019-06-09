@@ -22,7 +22,7 @@ class App {
 
     private mongoConnection(): void {
         mongoose.Promise = global.Promise;
-        mongoose.connect(this.mongoUrl);
+        mongoose.connect(this.mongoUrl, { useNewUrlParser: true });
     }
 
 }
